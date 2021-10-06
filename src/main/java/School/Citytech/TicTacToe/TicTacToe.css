@@ -1,0 +1,33 @@
+.label, .button{
+    -fx-font-family: Calibri;
+    -fx-font-size: 15pt;
+}
+
+#lblTitle{
+    -fx-font-size: 55pt;
+    -fx-alignment: center ;
+}
+.gameSlot, .winner {
+    -fx-font-size: 80pt;
+    -fx-min-width: 145;
+    -fx-min-height: 145;
+
+    -fx-alignment: center ;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+    -fx-text-fill: black;
+}
+
+.winner {
+    -fx-text-fill: blue;
+}
+
+#lblURL {
+    -fx-alignment: center ;
+}
+
+
+#lblStatus {
+    -fx-alignment: center ;
+}
