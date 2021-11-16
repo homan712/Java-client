@@ -1,0 +1,27 @@
+.lblTitle{
+    -fx-font-size: 17pt;
+    -fx-alignment: center ;
+}
+.abc{
+    -fx-border-color:black;
+    -fx-padding: 10 10 10 10;
+    -fx-min-width: 51;
+    -fx-min-height: 51;
+}
+
+.abcNew{
+    -fx-border-color:black;
+    -fx-padding: 10 10 10 10;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+}
+
+.grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+
+.highLight{
+    -fx-background-color: pink;
+}

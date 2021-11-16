@@ -9,7 +9,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="682.0" stylesheets="@TicTacToe.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="School.Citytech.TicTacToe.TicTacToeController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="682.0" stylesheets="@TicTacToe.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="School.Citytech.TicTacToe.TicTacToeController">
    <children>
       <FlowPane fx:id="fpGames" layoutX="113.0" layoutY="123.0" prefHeight="366.0" prefWidth="456.0">
          <children>
@@ -34,6 +34,8 @@
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#tictactoeMode" text="TicTacToe" />
                   <MenuItem mnemonicParsing="false" onAction="#abcCounterMode" text="ABC Coutner" />
+                  <MenuItem mnemonicParsing="false" onAction="#GrowthRateMode" text="Growth Rate" />
+
                </items>
             </Menu>
          </menus>

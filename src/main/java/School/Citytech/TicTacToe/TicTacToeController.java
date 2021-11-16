@@ -1,5 +1,7 @@
 package School.Citytech.TicTacToe;
 
+import School.Citytech.MainController;
+import com.jbbwebsolutions.http.utility.JSONGet;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,9 +12,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
-public class TicTacToeController implements Initializable {
+public class TicTacToeController extends MainController implements Initializable {
 
     @FXML
     private FlowPane fpGames;
@@ -27,6 +31,9 @@ public class TicTacToeController implements Initializable {
     private Button btnReset;
 
     private boolean isX = true;
+
+    final String TEMPLATE_URL = "http://localhost:9615/game/tictactoe?moves=";
+
 
     @FXML
     void gameMoveClick(MouseEvent event) {
@@ -43,7 +50,24 @@ public class TicTacToeController implements Initializable {
        String currentMove  = isX ? "x": "0";
        label.setText(currentMove);
        isX = !isX;
+
+       var moves =  Arrays.stream(labels)
+               .map(Label::getText).collect(Collectors.joining());
+        var newURL = TEMPLATE_URL + moves;
+        lblStatus.setText(newURL);
+
+        TicTacToeModel model = JSONGet.submitGet(newURL, TicTacToeModel.class);
+
+        System.out.println(model);
+
+        if(model.isWinner()){
+            Arrays.stream(model.getPosition())
+                    .forEach (e->{
+                        labels[e].getStyleClass().add("winner");
+                    });
+        }
     }
+
 
     private Label[] labels = new Label[9];
 
@@ -78,6 +102,7 @@ public class TicTacToeController implements Initializable {
 
           for (Label label: labels) {
               label.setText("N");
+              label.getStyleClass().remove("winner");
           }
       }
 

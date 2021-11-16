@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="556.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="School.Citytech.retirement.retirementController">
+   <children>
+      <Label layoutX="33.0" layoutY="40.0" text="Retirement"/>
+      <TableView fx:id="tvRetirement" layoutX="13.0" layoutY="96.0" prefHeight="323.0" prefWidth="599.0">
+        <columns>
+
+          <TableColumn prefWidth="75.0" text="no">
+              <cellValueFactory>
+                  <PropertyValueFactory property="no" />
+              </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn prefWidth="125.0" text="Starting Balance">
+              <cellValueFactory>
+                  <PropertyValueFactory property="startingBalance" />
+              </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="138.0" text="Yearly Deposit">
+                <cellValueFactory>
+                    <PropertyValueFactory property="yearlyDeposit" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="0.0" prefWidth="129.0" text="Interested Earned">
+                <cellValueFactory>
+                    <PropertyValueFactory property="interestedEarned" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="131.0" text="Ending Balance">
+                <cellValueFactory>
+                    <PropertyValueFactory property="endingBalance" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

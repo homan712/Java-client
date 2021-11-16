@@ -1,4 +1,5 @@
 package School.Citytech.TicTacToe;
+import School.Citytech.LoadScene;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,16 +15,9 @@ import javafx.stage.Stage;
 
         @Override
         public void start(Stage stage) throws Exception {
-            String name  = "TicTacToeView.fxml";
-            Parent root = FXMLLoader.load(getClass().getResource(name));
-            stage.setScene( new Scene(root));
-            stage.setTitle("TicTacToe by: HomanWong");
-            stage.show();
-            stage.setHeight(774);
-            stage.setWidth(682);
-            stage.setResizable(false);
 
 
+            new LoadScene().loadPage(stage, "TicTacToeView.fxml", "TicTacToe");
         }
     }
 

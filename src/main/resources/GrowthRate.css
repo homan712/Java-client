@@ -1,0 +1,13 @@
+
+
+.label{
+    -fx-font-size: 12pt;
+}
+
+.button{
+    -fx-font-size: 15pt;
+}
+
+#Title{
+    -fx-font-size: 30pt;
+}
