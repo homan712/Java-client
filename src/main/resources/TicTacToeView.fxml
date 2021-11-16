@@ -6,6 +6,9 @@
 <?import javafx.scene.layout.FlowPane?>
 
 
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="774.0" prefWidth="682.0" stylesheets="@TicTacToe.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="School.Citytech.TicTacToe.TicTacToeController">
    <children>
       <FlowPane fx:id="fpGames" layoutX="113.0" layoutY="123.0" prefHeight="366.0" prefWidth="456.0">
@@ -25,5 +28,15 @@
       <Label fx:id="lblStatus" layoutX="5.0" layoutY="648.0" prefHeight="26.0" prefWidth="674.0" />
       <Label id="lblTitle" layoutX="5.0" layoutY="34.0" prefHeight="89.0" prefWidth="674.0" text="TicTacToe" />
       <Button fx:id="btnReset" layoutX="298.0" layoutY="689.0" mnemonicParsing="false" onAction="#reset" text="reset" />
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="Display Mode">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#tictactoeMode" text="TicTacToe" />
+                  <MenuItem mnemonicParsing="false" onAction="#abcCounterMode" text="ABC Coutner" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
    </children>
 </AnchorPane>
