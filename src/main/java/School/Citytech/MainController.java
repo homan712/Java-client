@@ -29,6 +29,16 @@ public class MainController {
         selectMode("ABCView.fxml");
     }
 
+    @FXML
+    void retirementMode(ActionEvent event) {
+        selectMode("RetirementView.fxml");
+    }
+
+    @FXML
+    void propertiesMode(ActionEvent event) {
+        selectMode("PropertiesView.fxml");
+    }
+
     public void selectMode(String fxml) {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxml));

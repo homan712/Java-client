@@ -29,9 +29,9 @@
                        <MenuItem mnemonicParsing="false" onAction="#GrowthRateMode" text="Growth Rate" />
                        <MenuItem mnemonicParsing="false" onAction="#tictactoeMode" text="TicTacToe" />
                        <MenuItem mnemonicParsing="false" onAction="#abcCounterMode" text="ABC Coutner" />
-
-
-                   </items>
+                       <MenuItem mnemonicParsing="false" onAction="#retirementMode" text="Retirement" />
+                       <MenuItem mnemonicParsing="false" onAction="#propertiesMode" text="Property" />
+                 </items>
                </Menu>
            </menus>
        </MenuBar>

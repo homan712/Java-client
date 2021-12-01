@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<AnchorPane fx:id="anchorPane" prefHeight="685.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="School.Citytech.properties.propertiesController">
+   <children>
+      <TableView fx:id="tvProperties" layoutX="59.0" layoutY="83.0" prefHeight="436.0" prefWidth="663.0">
+        <columns>
+          <TableColumn fx:id="tableID" prefWidth="108.0" text="Property ID">
+            <cellValueFactory>
+                <PropertyValueFactory property="id" />
+            </cellValueFactory>
+          </TableColumn>
+
+          <TableColumn fx:id="tcCost" prefWidth="114.0" text="Cost" >
+            <cellValueFactory>
+                <PropertyValueFactory property="investmentCost" />
+            </cellValueFactory>
+          </TableColumn>
+
+            <TableColumn fx:id="tcGrossIncome" prefWidth="113.0" text="Gross Income" >
+            <cellValueFactory>
+                <PropertyValueFactory property="grossIncome" />
+            </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="tcExpenses" prefWidth="95.0" text="Expenses" >
+            <cellValueFactory>
+                <PropertyValueFactory property="expense" />
+            </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="tcNetIncome" prefWidth="100.0" text="Net Income" >
+            <cellValueFactory>
+                <PropertyValueFactory property="netIncome" />
+            </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn fx:id="tcOccupancy" prefWidth="130.0" text="Occupancy" >
+            <cellValueFactory>
+                <PropertyValueFactory property="occupancy" />
+            </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+       <MenuBar>
+           <menus>
+               <Menu mnemonicParsing="false" text="Display Mode">
+                   <items>
+                       <MenuItem mnemonicParsing="false" onAction="#GrowthRateMode" text="Growth Rate" />
+                       <MenuItem mnemonicParsing="false" onAction="#tictactoeMode" text="TicTacToe" />
+                       <MenuItem mnemonicParsing="false" onAction="#abcCounterMode" text="ABC Coutner" />
+                       <MenuItem mnemonicParsing="false" onAction="#retirementMode" text="Retirement" />
+                       <MenuItem mnemonicParsing="false" onAction="#propertiesMode" text="Property" />
+                   </items>
+               </Menu>
+           </menus>
+       </MenuBar>
+
+      <Label layoutX="356.0" layoutY="30.0" text="Properties" />
+   </children>
+</AnchorPane>
