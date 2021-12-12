@@ -70,5 +70,12 @@ public class retirementController extends MainController implements Initializabl
             var cell = new CustomTableCell();
             return cell;
         });
+
+        /* or use this method
+        tv.Retirement.getColumns(),stream().skip(1).forEach(tableColumn -> {
+        tableColumn.setCellFactory(c -> new CustomTableCell());
+        });
+
+         */
     }
 }
