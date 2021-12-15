@@ -5,8 +5,6 @@ import java.util.Arrays;
 public class Properties {
     private float count = 0;
 
-
-
     private Data[] investments;
 
     public float getCount() {

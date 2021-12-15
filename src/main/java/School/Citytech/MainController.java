@@ -39,6 +39,11 @@ public class MainController {
         selectMode("PropertiesView.fxml");
     }
 
+    @FXML
+    void TriStateMode(ActionEvent event) {
+        selectMode("TriStateIncomeView.fxml");
+    }
+
     public void selectMode(String fxml) {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(fxml));

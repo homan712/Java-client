@@ -31,7 +31,9 @@
                        <MenuItem mnemonicParsing="false" onAction="#abcCounterMode" text="ABC Coutner" />
                        <MenuItem mnemonicParsing="false" onAction="#retirementMode" text="Retirement" />
                        <MenuItem mnemonicParsing="false" onAction="#propertiesMode" text="Property" />
-                 </items>
+                       <MenuItem mnemonicParsing="false" onAction="#TriStateMode" text="TriState" />
+
+                   </items>
                </Menu>
            </menus>
        </MenuBar>

@@ -65,9 +65,11 @@ public class propertiesController extends MainController implements Initializabl
             var cell = new CustomTableCell();
             return cell;
         });
+
         tcOccupancy.setCellFactory( column-> {
             var cell = new CustomTableCell();
             return cell;
         });
+
     }
 }

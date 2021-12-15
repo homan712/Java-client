@@ -59,6 +59,8 @@
                <MenuItem mnemonicParsing="false" onAction="#GrowthRateMode" text="Growth Rate" />
                <MenuItem mnemonicParsing="false" onAction="#retirementMode" text="Retirement" />
                 <MenuItem mnemonicParsing="false" onAction="#propertiesMode" text="Property" />
+                <MenuItem mnemonicParsing="false" onAction="#TriStateMode" text="TriState" />
+
             </items>
           </Menu>
         </menus>

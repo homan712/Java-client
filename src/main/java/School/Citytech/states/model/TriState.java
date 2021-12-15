@@ -1,4 +1,4 @@
-package School.Citytech.states;
+package School.Citytech.states.model;
 
 public class TriState {
     private String state;
