@@ -125,11 +125,13 @@ public class TriStateController extends MainController implements Initializable 
 
                     System.out.println("State "+checkBox.getText());
 
+                        count.getAndIncrement();
+                    if (count.getAndIncrement() > 4){
+                        btnRefresh.setVisible(false);
+                        lblStatus.setText("more than 4 states selected is invalid.");
 
-                    if (count.getAndIncrement() >= 4){
-
-
-
+                    }if (count.getAndDecrement() == 4){
+                        btnRefresh.setVisible(true);
                     }
                     //btnRefresh.setVisible(false);
                     //lblStatus.setText("more than 4 states selected is invalid.");
