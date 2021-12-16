@@ -6,7 +6,13 @@ import School.Citytech.retirement.CustomTableCell;
 import School.Citytech.states.model.Property;
 
 import School.Citytech.states.model.TriState;
+import javafx.beans.Observable;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,13 +22,11 @@ import javafx.scene.control.*;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import org.w3c.dom.ls.LSOutput;
 
-import javax.swing.*;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Predicate;
 
 
@@ -55,6 +59,8 @@ public class TriStateController extends MainController implements Initializable 
 
     @FXML
     private FlowPane fpStates;
+
+
 
 
 
@@ -102,10 +108,11 @@ public class TriStateController extends MainController implements Initializable 
 
 
         }
-
+        AtomicInteger count;
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
+             count = new AtomicInteger();
                 System.out.println("confirmed");
                 this.refreshData( e -> true);
                 this.pieTriState.getData().forEach(this::clickOnPie);
@@ -115,39 +122,48 @@ public class TriStateController extends MainController implements Initializable 
                     checkBox.setPrefSize(60,15);
                     this.fpStates.getChildren().add(checkBox);
                     System.out.println(checkBox);
+
+                    checkBox.setOnAction((ActionEvent event) -> {
+                        if(checkBox.isSelected()){
+                            count.getAndIncrement();
+
+                            System.out.println("State "+checkBox.getText());
+
+                            count.getAndIncrement();
+                            if (count.getAndIncrement() >= 4){
+
+                            }
+                            //btnRefresh.setVisible(false);
+                            //lblStatus.setText("more than 4 states selected is invalid.");
+
+                        }
+
+                    });
+
+                    int NUM_CHECKBOXES = 4;
+
+                    ObservableList<CheckBox> checkBoxes = FXCollections.observableArrayList(
+                            c -> new Observable[] { c.selectedProperty() }
+                    );
+                    FilteredList<CheckBox> selectedCheckBoxes = checkBoxes.filtered(
+                            CheckBox::isSelected
+                    );
+                    IntegerProperty numCheckboxes = new SimpleIntegerProperty();
+                    numCheckboxes.bind(Bindings.size(checkBoxes));
+                    IntegerProperty numSelectedCheckboxes = new SimpleIntegerProperty();
+                    numSelectedCheckboxes.bind(Bindings.size(selectedCheckBoxes));
+
+                    // create the checkboxes.
+
+                    for (int i = 0; i < NUM_CHECKBOXES; i++) {
+                        checkBoxes.add(new CheckBox("" + (i+1)));
+                    }
+
+                    System.out.println("ON "+numSelectedCheckboxes);
+
                 });
 
-
-
-
-
-                //4--more than 4 check box, hide button
-
-            /**
-            private void hideButton(ActionEvent event){
-                if(event.checkbox > 4){
-                    btnRefresh.setVisible(false);
-                    lblStatus.setText("more than 4 states selected is invalid.");
-
-                //#8 --less than 2 checkboxes, hide button
-                }else if(event.checkbox < 2){
-                 btnRefresh.setVisible(false);
-                 lblStatus.setText("less than 2 states selected is invalid.");
-             }
-
-
             }
-             **/
-
-
-
-
-            }
-
-
-
-
-
 
 
         void clickOnPie (PieChart.Data data){
@@ -165,8 +181,10 @@ public class TriStateController extends MainController implements Initializable 
 
         }
 
-
-
+    @FXML
+    void onClick(ActionEvent event) {
+        System.out.println(count);
+    }
 
 }
 

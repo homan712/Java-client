@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 
 public class CustomTableCell extends TableCell {
 
-    private DecimalFormat formatt = new DecimalFormat("###,###.00");
+    private DecimalFormat format1 = new DecimalFormat("###,###.00");
 
     @Override
     protected void updateItem(Object item, boolean isEmpty) {
@@ -15,6 +15,6 @@ public class CustomTableCell extends TableCell {
         System.out.println("item " + item + "empty" + isEmpty);
         setText(null);
         if(!isEmpty)
-        setText(formatt.format(item));
+        setText(format1.format(item));
     }
 }

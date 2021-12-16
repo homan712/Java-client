@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 
 public class PercentageTableCell extends TableCell {
 
-    private DecimalFormat formatts = new DecimalFormat("0.0%");
+    private DecimalFormat format2 = new DecimalFormat("0.0%");
 
     @Override
     protected void updateItem(Object item, boolean isEmpty) {
@@ -14,6 +14,6 @@ public class PercentageTableCell extends TableCell {
         System.out.println("item" + item + "empty" + isEmpty);
         setText(null);
         if(!isEmpty)
-            setText(formatts.format(item));
+            setText(format2.format(item));
     }
 }

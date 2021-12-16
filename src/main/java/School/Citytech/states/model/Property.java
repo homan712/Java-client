@@ -5,7 +5,7 @@ package School.Citytech.states.model;
 public class Property {
 
     private String id ;
-    private float cost  ;
+    private float cost;
     //private float downPayment;
     private String state ;
     private float percentage ;

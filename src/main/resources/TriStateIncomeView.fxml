@@ -44,7 +44,7 @@
             </TableColumn>
         </columns>
       </TableView>
-      <Button fx:id="btnRefresh" layoutX="174.0" layoutY="442.0" mnemonicParsing="false" text="refresh" />
+      <Button fx:id="btnRefresh" layoutX="174.0" layoutY="442.0" mnemonicParsing="false" onAction="#onClick" text="refresh" />
       <Label fx:id="lblTitle" layoutX="174.0" layoutY="25.0" prefHeight="17.0" prefWidth="234.0" text="TriState Income" />
       <FlowPane fx:id="fpStates" layoutX="45.0" layoutY="481.0" prefHeight="284.0" prefWidth="395.0" />
        <MenuBar>
