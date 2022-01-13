@@ -6,11 +6,15 @@ import School.Citytech.retirement.CustomTableCell;
 import School.Citytech.states.model.Property;
 
 import School.Citytech.states.model.TriState;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 
@@ -57,9 +61,6 @@ public class TriStateController extends MainController implements Initializable 
 
 
 
-
-
-
     TriState[] gList = TriStateDataLayer.getData();
     Predicate<TriState> nyTriState = x -> x.getState().equals("CT") ||
             x.getState().equals("NJ") || x.getState().equals("NY");
@@ -102,9 +103,9 @@ public class TriStateController extends MainController implements Initializable 
 
 
     }
+
+
     AtomicInteger count ;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         count = new AtomicInteger();
@@ -118,27 +119,55 @@ public class TriStateController extends MainController implements Initializable 
             this.fpStates.getChildren().add(checkBox);
             System.out.println(checkBox);
 
+
             checkBox.setOnAction((ActionEvent event) -> {
-                if(checkBox.isSelected()){
 
 
+                    System.out.println(checkBox.getText());
 
-                    System.out.println("State "+checkBox.getText());
+                    int count =0;
+                    for (Node n: fpStates.getChildren()){
+                        if (event.getSource() instanceof CheckBox){
+                            CheckBox chk = (CheckBox)n;
+                            if ((chk.isSelected())){
+                                count++;
+                                if (count < 2 || count > 4){
+                                    btnRefresh.setDisable(true);
+                                    lblStatus.setDisable(false);
 
-                        count.getAndIncrement();
-                    if (count.getAndIncrement() > 4){
-                        btnRefresh.setVisible(false);
-                        lblStatus.setText("more than 4 states selected is invalid.");
 
-                    }if (count.getAndDecrement() == 4){
-                        btnRefresh.setVisible(true);
-                    }
+                                }else {
+                                    btnRefresh.setDisable(false);
+                                    lblStatus.setDisable(true);
+                                }
+                            }
+                        }
+
                     //btnRefresh.setVisible(false);
-                    //lblStatus.setText("more than 4 states selected is invalid.");
+                    lblStatus.setText("less than 2 states, or more than 4 states selected is invalid.");
+
+                        /**
+                        checkBox.selectedProperty().addListener(selectedListener);
+                        IntegerProperty count = new SimpleIntegerProperty();
+                        ChangeListener<Boolean> selectedListener = (obs, old, selected)->{
+                            count.setValue(selected?count.get()+1:count.get()-1);
+                            if(count.get()>4){
+
+                            }else{
+
+                            }
+                        };
+                         **/
 
                 }
 
-            });
+            }
+
+
+
+
+            );
+
 
 
         });
